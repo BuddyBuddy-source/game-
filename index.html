@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subway Runner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-icon">🚆</span><span>SUBWAY <b>RUNNER</b></span></div>
+      <div class="stats">
+        <div class="stat"><span>⭐</span><span id="score">000000</span></div>
+        <div class="stat"><span>🪙</span><span id="coins">0</span></div>
+      </div>
+    </header>
+
+    <section class="game-wrap" aria-label="Subway Runner game">
+      <canvas id="gameCanvas" width="900" height="600" aria-label="Game screen"></canvas>
+
+      <div id="startScreen" class="overlay">
+        <div class="panel">
+          <p class="eyebrow">READY, RUNNER?</p>
+          <h1>SUBWAY <span>RUNNER</span></h1>
+          <p>Dodge trains, leap over barriers, and collect coins!</p>
+          <button id="startBtn" class="primary-btn">START RUN ▶</button>
+          <div class="mini-controls">← → Move lanes &nbsp; • &nbsp; ↑ Jump &nbsp; • &nbsp; ↓ Slide</div>
+        </div>
+      </div>
+
+      <div id="gameOverScreen" class="overlay hidden">
+        <div class="panel">
+          <p class="eyebrow">RUN COMPLETE</p>
+          <h2>OOPS! <span>CAUGHT!</span></h2>
+          <p>Your score: <strong id="finalScore">0</strong></p>
+          <p>Coins collected: <strong id="finalCoins">0</strong></p>
+          <button id="restartBtn" class="primary-btn">RUN AGAIN ↻</button>
+        </div>
+      </div>
+
+      <button id="pauseBtn" class="pause-btn" aria-label="Pause game" title="Pause">Ⅱ</button>
+      <div id="pauseLabel" class="pause-label hidden">PAUSED</div>
+      <div class="bottom-hint">SWIPE OR USE ARROW KEYS</div>
+    </section>
+
+    <footer>
+      <span>Endless runner demo</span>
+      <span>Built with HTML · CSS · JavaScript</span>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap');
+
+:root {
+  --ink: #12213c;
+  --blue: #1478e8;
+  --yellow: #ffd33d;
+  --panel: rgba(11, 25, 51, .91);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  color: white;
+  font-family: 'Nunito', system-ui, sans-serif;
+  background: radial-gradient(circle at top, #285f91, #10192f 70%);
+}
+.game-shell {
+  width: min(100%, 1000px);
+  overflow: hidden;
+  border: 3px solid rgba(255,255,255,.2);
+  border-radius: 22px;
+  background: #12213c;
+  box-shadow: 0 24px 70px rgba(0,0,0,.42);
+}
+.topbar {
+  min-height: 76px;
+  padding: 14px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: linear-gradient(110deg, #075ab9, #138ce5);
+}
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 900; letter-spacing: 1px; font-size: clamp(16px, 3vw, 24px); }
+.brand b { color: var(--yellow); }
+.brand-icon { font-size: 28px; }
+.stats { display: flex; gap: 10px; }
+.stat {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 13px; min-width: 100px; justify-content: center;
+  border-radius: 12px; background: rgba(4, 24, 59, .52);
+  font-weight: 900; font-size: 17px;
+}
+.stat span:first-child { font-size: 20px; }
+.game-wrap { position: relative; overflow: hidden; background: #65c8f4; }
+canvas { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; touch-action: none; }
+.overlay {
+  position: absolute; inset: 0; z-index: 4;
+  display: grid; place-items: center; padding: 18px;
+  background: linear-gradient(135deg, rgba(5, 23, 54, .35), rgba(5, 23, 54, .72));
+  text-align: center;
+}
+.hidden { display: none !important; }
+.panel {
+  width: min(100%, 460px); padding: 30px 26px;
+  border: 1px solid rgba(255,255,255,.28); border-radius: 24px;
+  background: var(--panel); box-shadow: 0 15px 45px rgba(0,0,0,.3);
+  backdrop-filter: blur(8px);
+}
+.eyebrow { margin: 0 0 8px; color: var(--yellow); font-weight: 900; letter-spacing: 3px; font-size: 12px; }
+h1, h2 { margin: 0 0 12px; font-size: clamp(28px, 5vw, 43px); line-height: 1.05; font-weight: 900; }
+h1 span, h2 span { color: var(--yellow); }
+.panel > p:not(.eyebrow) { color: #e1edff; line-height: 1.5; }
+.primary-btn {
+  margin: 13px 0 12px; border: 0; border-radius: 13px;
+  padding: 14px 28px; background: linear-gradient(180deg, #ffe66a, #ffb91e);
+  color: #172443; font: 900 16px 'Nunito', sans-serif; letter-spacing: .5px;
+  cursor: pointer; box-shadow: 0 5px 0 #bd7d10; transition: transform .12s, filter .12s;
+}
+.primary-btn:hover { filter: brightness(1.07); transform: translateY(-2px); }
+.primary-btn:active { transform: translateY(2px); box-shadow: 0 2px 0 #bd7d10; }
+.mini-controls { color: #bcd5f5; font-size: 12px; margin-top: 8px; }
+.pause-btn {
+  position: absolute; z-index: 3; top: 14px; left: 14px;
+  width: 46px; height: 46px; border: 2px solid rgba(255,255,255,.75);
+  border-radius: 13px; color: white; background: rgba(6, 36, 80, .75);
+  font-size: 22px; font-weight: 900; cursor: pointer;
+}
+.pause-label {
+  position: absolute; inset: 0; z-index: 2; display: grid; place-items: center;
+  background: rgba(4, 17, 38, .5); font-size: clamp(30px, 6vw, 55px);
+  font-weight: 900; letter-spacing: 5px; text-shadow: 0 4px 0 #123;
+}
+.bottom-hint {
+  position: absolute; right: 12px; bottom: 10px; z-index: 1;
+  color: white; font-size: 10px; font-weight: 900; letter-spacing: 1px;
+  padding: 7px 10px; border-radius: 20px; background: rgba(8, 31, 60, .48);
+}
+footer { display: flex; justify-content: space-between; gap: 10px; padding: 13px 20px; color: #a9c7eb; font-size: 12px; background: #12213c; }
+@media (max-width: 560px) {
+  body { padding: 0; display: block; background: #12213c; }
+  .game-shell { width: 100%; border: 0; border-radius: 0; min-height: 100vh; }
+  .topbar { min-height: 64px; padding: 10px 13px; }
+  .stat { min-width: 72px; padding: 7px 9px; font-size: 14px; }
+  .brand-icon { font-size: 22px; }
+  .panel { padding: 23px 16px; }
+  footer { font-size: 10px; padding: 12px; }
+}
